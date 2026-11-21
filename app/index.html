@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Snap — GTA 6-style cover art maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<noscript><p style="padding:20px">This cover maker needs JavaScript. Enable it, then reload.</p></noscript>
+<header class="topbar">
+  <h1>COVER SNAP</h1>
+  <p>Turn a photo and a caption into GTA-style cover art. Everything stays on this machine.</p>
+</header>
+<main class="layout">
+  <section class="controls" aria-label="Editor controls">
+    <label>Your photo
+      <input id="photoInput" type="file" accept="image/*">
+    </label>
+    <label>Caption title
+      <input id="titleInput" type="text" value="VICE CITY" maxlength="40">
+    </label>
+    <label>Subtitle
+      <input id="subtitleInput" type="text" value="One city. Every hustle." maxlength="80">
+    </label>
+    <label>Colour grade
+      <select id="styleSelect">
+        <option value="sunset" selected>Sunset</option>
+        <option value="neon">Neon</option>
+        <option value="night">Night</option>
+      </select>
+    </label>
+    <label>Panels
+      <select id="layoutSelect">
+        <option value="1">1 panel</option>
+        <option value="2">2 panels</option>
+        <option value="3" selected>3 panels</option>
+        <option value="4">4 panels</option>
+      </select>
+    </label>
+    <label>Caption size
+      <input id="captionSizeInput" type="range" min="60" max="140" value="100">
+    </label>
+    <label>Caption colour
+      <input id="colorInput" type="color" value="#ffffff">
+    </label>
+    <label>Photo zoom
+      <input id="zoomInput" type="range" min="0.8" max="2.5" step="0.05" value="1">
+    </label>
+    <label>Photo position X
+      <input id="xInput" type="range" min="-0.4" max="0.4" step="0.01" value="0">
+    </label>
+    <label>Photo position Y
+      <input id="yInput" type="range" min="-0.4" max="0.4" step="0.01" value="0">
+    </label>
+    <label>Export size
+      <select id="sizeSelect">
+        <option value="square" selected>1080 x 1080</option>
+        <option value="portrait">1080 x 1350</option>
+        <option value="wide">1920 x 1080</option>
+      </select>
+    </label>
+    <button id="exportBtn" type="button">Export PNG</button>
+    <p class="hint">Tip: load your own photo, pick 3 or 4 panels, then export. No upload, no network.</p>
+  </section>
+  <section class="preview-wrap" aria-label="Live preview">
+    <canvas id="preview" width="640" height="640"></canvas>
+    <p class="preview-note">Live preview — every control change redraws the cover instantly.</p>
+  </section>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
